@@ -1,6 +1,6 @@
 # SmartyPay Subscriptions React Demo
 
-Demo Next.js project with SmartyPay Subscriptions and react components.
+Demo Next.js project with [SmartyPay Subscriptions SDK for React](https://github.com/smarty-pay/smartypay-client-subscrptions-react).
 
 ## Load and fast start on localhost:3000
 ```
