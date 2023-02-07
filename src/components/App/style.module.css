@@ -1,0 +1,29 @@
+
+
+.root {
+    background: white;
+    width: 800px;
+    margin: 4px auto;
+    padding: 2px 8px;
+    align-content: space-between;
+}
+
+.main {
+    padding-top: 32px;
+    position: relative;
+    flex-grow: 4;
+}
+
+.connectMenu {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 8px;
+    background-color: white;
+    width: 50%;
+    min-width: 300px;
+    padding: 8px;
+}
+.connectMenuClose {
+    align-self: flex-end;
+}

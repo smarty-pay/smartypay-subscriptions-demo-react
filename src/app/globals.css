@@ -1,0 +1,63 @@
+
+
+.hide {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.invisible {
+  visibility: hidden !important;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-inline {
+  display: inline-flex;
+}
+.flex-gap-4 {
+  gap: 4px;
+}
+.flex-gap-8 {
+  gap: 8px;
+}
+.flex-gap-16 {
+  gap: 16px;
+}
+.flex-gap-24 {
+  gap: 24px;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-align-center {
+  align-items: center;
+}
+.flex-align-baseline {
+  align-items: baseline;
+}
+
+
+.panel {
+  padding: 4px;
+}
+
+.panel-middle {
+  max-width: 400px;
+}
+
+
+
+body.app-body {
+  background: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 100vh;
+}

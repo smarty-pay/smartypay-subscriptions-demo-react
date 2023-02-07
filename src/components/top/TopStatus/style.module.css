@@ -1,0 +1,7 @@
+
+
+.topStatus {
+    max-height: 100px;
+    overflow: auto;
+    line-break: anywhere;
+}
