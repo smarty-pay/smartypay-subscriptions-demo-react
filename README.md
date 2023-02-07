@@ -1,6 +1,6 @@
-# SmartyPay Subscriptions Demo
+# SmartyPay Subscriptions React Demo
 
-Demo Project with SmartyPay Subscriptions.
+Demo Next.js project with SmartyPay Subscriptions and react components.
 
 ## Load and fast start on localhost:3000
 ```
