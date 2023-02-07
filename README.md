@@ -35,4 +35,5 @@ API_SECRET - Merchant api secret
 - Pause subscription: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/components/subscriptions/SubscriptionOperations/index.tsx#L80)
 - UnPause subscription: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/components/subscriptions/SubscriptionOperations/index.tsx#L93)
 - Cancel subscription: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/components/subscriptions/SubscriptionOperations/index.tsx#L106)
+- Monitoring subscriptions events: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/components/subscriptions/SubscriptionsList/index.tsx#L116)
 
