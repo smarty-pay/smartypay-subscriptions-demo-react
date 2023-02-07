@@ -29,7 +29,7 @@ API_SECRET - Merchant api secret
 - Create subscription on backend side (with Node SDK): [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/pages/api/create-subscription.ts#L26)
 
 ### Frontend side
-- Connect to Metamask button: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/tree/main/src/components/connect/MetamaskConnectButton)
+- Connect to Metamask button: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/components/connect/MetamaskConnectButton/index.tsx)
 - Disconnect from wallet button: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/components/top/TopMenuConnectButton/index.tsx)
 - Activate subscription: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/components/subscriptions/SubscriptionOperations/index.tsx#L120)
 - Pause subscription: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/components/subscriptions/SubscriptionOperations/index.tsx#L80)
