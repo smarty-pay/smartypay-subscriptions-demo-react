@@ -23,10 +23,10 @@ API_SECRET - Merchant api secret
 ```
 
 ## Common actions examples:
-### Backend side
-- Get subscriptions plans from backend side (with Node SDK): [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/pages/api/subscription-plans.ts#L10)
-- Get users subscriptions by its address from backend side (with Node SDK): [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/pages/api/subscriptions.ts#L16)
-- Create subscription on backend side (with Node SDK): [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/pages/api/create-subscription.ts#L26)
+### Backend side (with Node SDK)
+- Get subscriptions plans: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/pages/api/subscription-plans.ts#L10)
+- Get users subscriptions by its address: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/pages/api/subscriptions.ts#L16)
+- Create subscription: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/pages/api/create-subscription.ts#L26)
 
 ### Frontend side
 - Connect to Metamask button: [example](https://github.com/smarty-pay/smartypay-subscriptions-demo-react/blob/main/src/components/connect/MetamaskConnectButton/index.tsx)
