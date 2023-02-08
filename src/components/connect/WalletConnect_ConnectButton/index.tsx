@@ -1,5 +1,5 @@
 import {SmartyPayWalletConnectProvider} from 'smartypay-client-wallet-connect';
-import {useConnectToWalletCallback, useSmartyApiLocked} from 'smartypay-client-subscrptions-react';
+import {useConnectToWalletCallback, useSmartyApiLocked} from 'smartypay-client-subscriptions-react';
 
 
 export function WalletConnect_ConnectButton(){

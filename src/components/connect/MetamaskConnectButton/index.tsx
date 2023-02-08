@@ -1,5 +1,5 @@
 import {SmartyPayMetamaskProvider} from 'smartypay-client-metamask';
-import {useConnectToWalletCallback, useSmartyApiLocked} from 'smartypay-client-subscrptions-react';
+import {useConnectToWalletCallback, useSmartyApiLocked} from 'smartypay-client-subscriptions-react';
 
 
 export function MetamaskConnectButton(){

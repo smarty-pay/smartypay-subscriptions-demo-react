@@ -3,7 +3,7 @@ import {
   useSmartyApiLocked,
   useWalletAddress,
   useWalletConnected
-} from 'smartypay-client-subscrptions-react';
+} from 'smartypay-client-subscriptions-react';
 import {SmartyPayMetamaskProvider} from 'smartypay-client-metamask';
 import classes from './style.module.css';
 import {useEffect, useState} from 'react';

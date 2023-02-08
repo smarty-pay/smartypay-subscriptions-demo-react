@@ -7,7 +7,7 @@ import {
   useSmartyApiLocked,
   useUpdatingSubscriptionsPlans,
   useWalletAddress
-} from 'smartypay-client-subscrptions-react';
+} from 'smartypay-client-subscriptions-react';
 import {Subscription, SubscriptionPlan} from 'smartypay-client-model';
 import classes from './style.module.css';
 import {getJsonFetcher, noUpdatesConfig} from '@/util/fetch-util';

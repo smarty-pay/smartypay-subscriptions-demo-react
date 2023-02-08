@@ -4,7 +4,7 @@ import {
   useWalletConnected,
   useWalletConnecting,
   useWalletName
-} from 'smartypay-client-subscrptions-react';
+} from 'smartypay-client-subscriptions-react';
 import classes from './style.module.css';
 
 

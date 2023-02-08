@@ -2,7 +2,7 @@
 
 Demo Next.js project with 
 - [SmartyPay Node SDK for backend side](https://github.com/smarty-pay/smartypay-node-sdk)
-- [SmartyPay Subscriptions SDK for React](https://github.com/smarty-pay/smartypay-client-subscrptions-react)
+- [SmartyPay Subscriptions SDK for React](https://github.com/smarty-pay/smartypay-client-subscriptions-react)
 
 ## Load and fast start on localhost:3000
 ```

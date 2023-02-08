@@ -3,7 +3,7 @@ import {
   addSubscriptionsGlobalListener,
   restoreOldWalletConnectionFromAny,
   useWalletConnected,
-} from 'smartypay-client-subscrptions-react';
+} from 'smartypay-client-subscriptions-react';
 import {SmartyPayMetamaskProvider} from 'smartypay-client-metamask';
 import {SmartyPayWalletConnectProvider} from 'smartypay-client-wallet-connect';
 import {TopMenu} from '@/components/top/TopMenu';

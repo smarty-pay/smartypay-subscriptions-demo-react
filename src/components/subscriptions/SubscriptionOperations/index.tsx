@@ -5,7 +5,7 @@ import {
   cancelSubscriptionInWallet,
   pauseSubscriptionInWallet,
   unPauseSubscriptionInWallet
-} from 'smartypay-client-subscrptions-react';
+} from 'smartypay-client-subscriptions-react';
 import {postJsonFetcher} from '@/util/fetch-util';
 
 
