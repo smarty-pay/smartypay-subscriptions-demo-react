@@ -15,8 +15,11 @@ export default async function handler(
 
   let subscriptions = await smartyPayAPI.subscriptions.getSubscriptionsByPayer(payer.toString());
 
-  // ignore Cancelled subscriptions
-  subscriptions = subscriptions.filter(sub => sub.status !== 'Cancelled' && sub.status !== 'PendingCancel');
+  // ignore Draft and Cancelled subscriptions
+  subscriptions = subscriptions.filter(sub =>
+    sub.status !== 'Draft'
+    && sub.status !== 'Cancelled'
+    && sub.status !== 'PendingCancel');
 
   res.status(200).json(subscriptions);
 }
