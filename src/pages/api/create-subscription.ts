@@ -1,8 +1,11 @@
 import {NextApiRequest, NextApiResponse} from 'next';
 import {smartyPayAPI} from '@/index';
+import {withErrorHandler} from '@/pages/api/api-util';
 
 
-export default async function handler(
+export default withErrorHandler(handler);
+
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
