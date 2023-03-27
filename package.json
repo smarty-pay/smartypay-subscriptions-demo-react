@@ -21,7 +21,7 @@
     "react-dom": "18.2.0",
     "smartypay-client-metamask": "^2.0.0",
     "smartypay-client-model": "^2.2.0",
-    "smartypay-client-subscriptions-react": "^2.3.0",
+    "smartypay-client-subscriptions-react": "^2.4.0",
     "smartypay-client-wallet-connect": "^2.0.1",
     "smartypay-node-sdk": "^2.2.0",
     "swr": "^2.0.3",
