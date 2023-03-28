@@ -12,6 +12,9 @@ import {useEffect, useState} from 'react';
 import {MetamaskConnectButton} from '@/components/connect/MetamaskConnectButton';
 import {WalletConnect_ConnectButton} from '@/components/connect/WalletConnect_ConnectButton';
 import {SubscriptionsList} from '@/components/subscriptions/SubscriptionsList';
+import useSWR from 'swr';
+import {SubscriptionPlan} from 'smartypay-client-model';
+import {getJsonFetcher, noUpdatesConfig} from '@/util/fetch-util';
 
 
 // just for demo: logs all api events
@@ -30,16 +33,26 @@ export function App(){
     restoreOldWalletConnectionFromAny(
       SmartyPayMetamaskProvider,
       SmartyPayWalletConnectProvider
-    );
+    ).catch(console.error);
   }, []);
+
+  // plans
+  const {
+    data: plans,
+    isLoading: isPlansLoading,
+    error: getPlansError
+  } = useGetSubscriptionPlans();
 
 
   return (
     <div className={`${classes.root} flex-col`}>
 
-      <TopMenu showConnectOptions={()=>{
-        setShowConnectButtons(true);
-      }}/>
+      <TopMenu
+        plans={plans}
+        showConnectOptions={()=>{
+          setShowConnectButtons(true);
+        }}
+      />
 
       <div className={classes.main}>
 
@@ -58,10 +71,21 @@ export function App(){
           </div>
         }
 
-        <SubscriptionsList/>
+        <SubscriptionsList
+          plans={plans}
+          isPlansLoading={isPlansLoading}
+          getPlansError={getPlansError}
+        />
 
       </div>
 
     </div>
   )
-};
+}
+
+
+
+function useGetSubscriptionPlans(){
+  return useSWR<SubscriptionPlan[]>(
+    '/api/subscription-plans', getJsonFetcher, noUpdatesConfig());
+}

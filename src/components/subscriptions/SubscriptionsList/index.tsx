@@ -1,5 +1,4 @@
 'use client';
-import useSWR from 'swr';
 import {
   addSubscriptionsListener,
   removeSubscriptionsListener,
@@ -10,21 +9,27 @@ import {
 } from 'smartypay-client-subscriptions-react';
 import {Subscription, SubscriptionPlan} from 'smartypay-client-model';
 import classes from './style.module.css';
-import {getJsonFetcher, noUpdatesConfig} from '@/util/fetch-util';
+import {getJsonFetcher} from '@/util/fetch-util';
 import {SubscriptionItem} from '@/components/subscriptions/SubscriptionItem';
 import {useEffect, useMemo, useState} from 'react';
 
-export function SubscriptionsList(){
+
+export interface SubscriptionsListProps {
+  plans: SubscriptionPlan[]|undefined,
+  isPlansLoading: boolean,
+  getPlansError: any,
+}
+
+export function SubscriptionsList(
+  {
+    plans,
+    isPlansLoading,
+    getPlansError,
+  }: SubscriptionsListProps
+){
 
   const apiLocked = useSmartyApiLocked();
   const payerAddress = useWalletAddress();
-
-  // plans
-  const {
-    data: plans,
-    isLoading: isPlansLoading,
-    error: getPlansError
-  } = useGetSubscriptionPlans();
 
   // user's subscriptions
   const {
@@ -73,12 +78,6 @@ export function SubscriptionsList(){
   )
 }
 
-
-
-function useGetSubscriptionPlans(){
-  return useSWR<SubscriptionPlan[]>(
-    '/api/subscription-plans', getJsonFetcher, noUpdatesConfig());
-}
 
 
 function useGetUserSubscriptions(payerAddress: string|undefined){
