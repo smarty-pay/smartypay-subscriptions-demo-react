@@ -47,6 +47,7 @@ function ShowCurrencyButton({currency}: ShowCurrencyProp){
 
   return (
     <button
+      className="btn btn-outline-secondary btn-sm"
       disabled={apiLocked}
       onClick={addCurrencyCallback}>
       Show {Assets[currency].abbr}

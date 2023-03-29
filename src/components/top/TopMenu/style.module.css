@@ -7,3 +7,9 @@
 .topMenu > * {
     margin: 0;
 }
+
+@media screen and (max-width: 550px) {
+    .topMenu {
+        flex-direction: column !important;
+    }
+}
