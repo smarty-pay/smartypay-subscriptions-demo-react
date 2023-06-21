@@ -4,6 +4,7 @@ import {
   activateSubscriptionInWallet,
   cancelSubscriptionInWallet,
   pauseSubscriptionInWallet,
+  TokenMaxAbsoluteAmount,
   unPauseSubscriptionInWallet
 } from 'smartypay-client-subscriptions-react';
 import {postJsonFetcher} from '@/util/fetch-util';
@@ -127,6 +128,8 @@ async function activateSubscription(payer: string, planId: string, oldSubscripti
       }
 
       return subscription;
+    }, {
+      approveAbsoluteAmount: TokenMaxAbsoluteAmount
     });
   } catch (e: any){
     console.error('can not activate subscription:', e.message);
