@@ -3,6 +3,7 @@ import {Subscription, SubscriptionPlan} from 'smartypay-client-model';
 import {
   activateSubscriptionInWallet,
   cancelSubscriptionInWallet,
+  isValidBalanceToPay,
   pauseSubscriptionInWallet,
   TokenMaxAbsoluteAmount,
   unPauseSubscriptionInWallet
@@ -126,6 +127,12 @@ async function activateSubscription(payer: string, planId: string, oldSubscripti
       if( ! subscription){
         subscription = await postJsonFetcher<Subscription>('/api/create-subscription', {planId, payer});
       }
+
+      const isValidBalance = await isValidBalanceToPay(subscription);
+      if( ! isValidBalance){
+        throw new Error('Not enough token funds to activate the subscription');
+      }
+
 
       return subscription;
     }, {
