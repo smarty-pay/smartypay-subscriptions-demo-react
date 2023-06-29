@@ -1,6 +1,6 @@
 import {NextApiRequest, NextApiResponse} from 'next';
 import {smartyPayAPI} from '@/index';
-import {withErrorHandler} from '@/pages/api/api-util';
+import {getFakeCustomerId, withErrorHandler} from '@/pages/api/api-util';
 
 export default withErrorHandler(handler);
 
@@ -9,19 +9,9 @@ async function handler(
   res: NextApiResponse
 ) {
 
-  const {payer} = req.query;
-  if( ! payer){
-    res.status(400).send({ message: 'query param "payer" required'});
-    return;
-  }
+  const customerId = getFakeCustomerId(req);
 
-  let subscriptions = await smartyPayAPI.subscriptions.getSubscriptionsByPayer(payer.toString());
-
-  // ignore Draft and Cancelled subscriptions
-  subscriptions = subscriptions.filter(sub =>
-    sub.status !== 'Draft'
-    && sub.status !== 'Cancelled'
-    && sub.status !== 'PendingCancel');
+  const subscriptions = await smartyPayAPI.subscriptions.getSubscriptionsByCustomer(customerId);
 
   res.status(200).json(subscriptions);
 }

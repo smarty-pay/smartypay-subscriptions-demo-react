@@ -7,6 +7,7 @@ import {
 import {SmartyPayMetamaskProvider} from 'smartypay-client-metamask';
 import classes from './style.module.css';
 import {useEffect, useState} from 'react';
+import {getAddressLabel} from '@/components/common';
 
 type StatusStyle = 'alert-primary' | 'alert-warning';
 
@@ -128,7 +129,7 @@ function WalletAddressStatus(){
     <span>
       <i className="bi bi-person-circle"></i>
       {' '}
-      <span className='address'>{address || 'Unknown address'}</span>
+      <span className='address'>{address? getAddressLabel(address) : 'Unknown address'}</span>
     </span>
   )
 }

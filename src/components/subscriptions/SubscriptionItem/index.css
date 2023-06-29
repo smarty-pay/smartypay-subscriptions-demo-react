@@ -1,0 +1,35 @@
+
+
+.info-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+    overflow: auto;
+}
+
+.info-row:last-child {
+    text-align: right;
+}
+
+.info-row a.no-change {
+    cursor: inherit;
+}
+
+.price-row {
+    margin-bottom: 16px;
+}
+
+.subscription-description {
+    margin: 8px 0 0;
+    font-size: 14px;
+}
+
+.sub-item {
+    width: 18rem;
+    min-height: 380px;
+}
+
+.sub-footer {
+    padding-bottom: 20px;
+}

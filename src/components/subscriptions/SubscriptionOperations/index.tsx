@@ -6,9 +6,12 @@ import {
   isValidBalanceToPay,
   pauseSubscriptionInWallet,
   TokenMaxAbsoluteAmount,
-  unPauseSubscriptionInWallet
+  unPauseSubscriptionInWallet,
+  isEndingSubscription,
 } from 'smartypay-client-subscriptions-react';
 import {postJsonFetcher} from '@/util/fetch-util';
+import {getAddressLabel} from '@/components/common';
+import './index.css'
 
 
 export interface SubscriptionOperationsProp {
@@ -42,23 +45,35 @@ export function SubscriptionOperations(
   // show Draft as 'Not Activated' because user need to activate this sub
   const statusLabel = canActivate? 'Not Activated' : status;
 
-  const actionsDisabled = !canUpdate || isUpdating;
+  const isWrongAddress =  !!payerAddress
+    && !!subscription?.payer
+    && subscription.payer !== payerAddress
+    && (canDeactivate || canPause || canUnPause);
+
+  const actionsDisabled = !canUpdate || isUpdating || isWrongAddress;
+
+  const isEnding = isEndingSubscription(subscription);
 
   return (
     <>
       <div className='flex-row flex-gap-8 flex-align-baseline'>
         <span>status:</span>
         <span className='fs-5'>
-          {!canShowStatus &&
-            <span className='badge bg-light text-dark'>-</span>
-          }
-          {canShowStatus &&
-            <span className={`badge ${statusLabel === 'Active'? 'bg-success' : 'bg-light text-dark'}`}>
-              {statusLabel}
-            </span>
+          <span className={`badge ${statusLabel === 'Active'? 'bg-success' : 'bg-light text-dark'}`}>
+            {statusLabel}
+          </span>
+
+          {isEnding &&
+            <span className="ending-status badge bg-warning text-dark">Ending</span>
           }
         </span>
       </div>
+
+      {subscription && isWrongAddress &&
+        <div className="wrong-address">
+          Please select wallet {getAddressLabel(subscription.payer)} to update the subscription
+        </div>
+      }
 
       {canShowStatus && canActivate &&
         <button
@@ -99,7 +114,7 @@ export function SubscriptionOperations(
           Unpause
         </button>
       }
-      {subscription && canDeactivate &&
+      {subscription && !isEnding && canDeactivate &&
         <button
           disabled={actionsDisabled}
           className="btn btn-outline-warning"

@@ -1,7 +1,6 @@
 import {NextApiRequest, NextApiResponse} from 'next';
 import {smartyPayAPI} from '@/index';
-import {withErrorHandler} from '@/pages/api/api-util';
-
+import {getFakeCustomerId, getFakeSubscriptionMetaData, withErrorHandler} from '@/pages/api/api-util';
 
 export default withErrorHandler(handler);
 
@@ -22,8 +21,8 @@ async function handler(
     return;
   }
 
-  const customerId = 'backend-customer-id' // use your own system's customer id
-  const metadata = 'some usefull metadata' // optional metadata from your own system
+  const customerId = getFakeCustomerId(req);
+  const metadata = getFakeSubscriptionMetaData();
   const startFrom = new Date().toISOString(); // minimal time to start
 
   const subscription = await smartyPayAPI.subscriptions.createSubscription({

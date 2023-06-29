@@ -16,6 +16,7 @@ import {useEffect, useMemo, useState} from 'react';
 
 export interface SubscriptionsListProps {
   plans: SubscriptionPlan[]|undefined,
+  customerId: string|undefined,
   isPlansLoading: boolean,
   getPlansError: any,
 }
@@ -25,6 +26,7 @@ export function SubscriptionsList(
     plans,
     isPlansLoading,
     getPlansError,
+    customerId,
   }: SubscriptionsListProps
 ){
 
@@ -36,7 +38,7 @@ export function SubscriptionsList(
     data: userSubs,
     isLoading: isUserSubsLoading,
     outdatedSubscriptionPlan,
-  } = useGetUserSubscriptions(payerAddress);
+  } = useGetUserSubscriptions();
 
   // plan ids of updating user's subscriptions
   const updatingSubscriptionsPlans = useUpdatingSubscriptionsPlans();
@@ -45,7 +47,9 @@ export function SubscriptionsList(
 
   return (
     <>
-      <h6>All Subscriptions:</h6>
+      <h6 className={classes.plansTitle}>
+        Subscriptions for Customer <span>{customerId? `#${customerId.substring(0, 4)}` : ''}</span>
+      </h6>
       <div className={`${classes.list} flex-row flex-gap-24 panel border rounded flex-wrap`}>
         {isPlansLoading &&
           <span>
@@ -80,7 +84,7 @@ export function SubscriptionsList(
 
 
 
-function useGetUserSubscriptions(payerAddress: string|undefined){
+function useGetUserSubscriptions(){
 
   const [startLoad, setStartLoad] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -99,7 +103,7 @@ function useGetUserSubscriptions(payerAddress: string|undefined){
   // force to load on input changed
   useEffect(()=>{
     setStartLoad(true);
-  }, [payerAddress, setStartLoad]);
+  }, [setStartLoad]);
 
 
   // force to load on updated subscription
@@ -129,17 +133,14 @@ function useGetUserSubscriptions(payerAddress: string|undefined){
     setStartLoad(false);
     setError(undefined);
 
-    if( ! payerAddress){
-      setData(undefined);
-    } else {
-      // async
-      loadSubscriptions().catch(console.error);
-    }
+    // async
+    loadSubscriptions().catch(console.error);
+
 
     async function loadSubscriptions(){
       setLoading(true);
       try {
-        const subs = await getJsonFetcher<Subscription[]>(`/api/subscriptions?payer=${payerAddress}`);
+        const subs = await getJsonFetcher<Subscription[]>(`/api/subscriptions`);
         setData(subs);
       } catch (e){
         console.error('can not load subscriptions', e);
@@ -154,7 +155,6 @@ function useGetUserSubscriptions(payerAddress: string|undefined){
       }
     }
   }, [
-    payerAddress,
     startLoad,
     setStartLoad,
     setData,

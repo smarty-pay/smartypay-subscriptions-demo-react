@@ -38,17 +38,17 @@ export function App(){
 
   // plans
   const {
-    data: plans,
-    isLoading: isPlansLoading,
-    error: getPlansError
-  } = useGetSubscriptionPlans();
+    data: initData,
+    isLoading: isDataLoading,
+    error: getDataError
+  } = useGetInitData();
 
 
   return (
     <div className={`${classes.root} flex-col`}>
 
       <TopMenu
-        plans={plans}
+        plans={initData?.plans}
         showConnectOptions={()=>{
           setShowConnectButtons(true);
         }}
@@ -72,9 +72,10 @@ export function App(){
         }
 
         <SubscriptionsList
-          plans={plans}
-          isPlansLoading={isPlansLoading}
-          getPlansError={getPlansError}
+          plans={initData?.plans}
+          customerId={initData?.customerId}
+          isPlansLoading={isDataLoading}
+          getPlansError={getDataError}
         />
 
       </div>
@@ -83,9 +84,12 @@ export function App(){
   )
 }
 
+interface InitData {
+  plans: SubscriptionPlan[],
+  customerId: string,
+}
 
-
-function useGetSubscriptionPlans(){
-  return useSWR<SubscriptionPlan[]>(
-    '/api/subscription-plans', getJsonFetcher, noUpdatesConfig());
+function useGetInitData(){
+  return useSWR<InitData>(
+    '/api/init-data', getJsonFetcher, noUpdatesConfig());
 }

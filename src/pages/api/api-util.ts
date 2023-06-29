@@ -1,4 +1,6 @@
 import {NextApiRequest, NextApiResponse} from 'next';
+import {uuid} from '@walletconnect/utils';
+import crypto from 'crypto';
 
 
 export function withErrorHandler(hander: (req: NextApiRequest, res: NextApiResponse)=> Promise<any>){
@@ -20,4 +22,16 @@ export function withErrorHandler(hander: (req: NextApiRequest, res: NextApiRespo
       }
     }
   }
+}
+
+
+
+export function getFakeCustomerId(req: NextApiRequest): string {
+  // we use fake customer id in our demo
+  const idSeed = req.headers['user-agent'] || 'some-user';
+  return crypto.createHash('md5').update(idSeed).digest("hex");
+}
+
+export function getFakeSubscriptionMetaData(){
+  return `metadata-${uuid()}`;
 }

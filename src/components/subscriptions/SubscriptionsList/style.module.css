@@ -4,3 +4,7 @@
     padding: 24px 16px 32px 16px;
     gap: 40px;
 }
+
+.plansTitle span {
+    font-weight: bold;
+}
