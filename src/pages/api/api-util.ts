@@ -1,5 +1,5 @@
 import {NextApiRequest, NextApiResponse} from 'next';
-import {uuid} from '@walletconnect/utils';
+import { v4 as uuid } from 'uuid';
 import crypto from 'crypto';
 
 
