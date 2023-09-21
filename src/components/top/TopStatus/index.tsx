@@ -29,6 +29,9 @@ export function TopStatus(){
       setShowCustomStatus(true);
       setNoMetamaskStatus(SmartyPayMetamaskProvider.isNoMetamaskError(apiLastError));
     }
+    else if(SmartyPayMetamaskProvider.isMultiApiState()){
+      setShowCustomStatus(true);
+    }
   }, [apiLastError]);
 
   // hide last api error on connected event
@@ -50,6 +53,11 @@ export function TopStatus(){
   }
   else if(showCustomStatus && apiLastError){
     statusElem = <ApiErrorStatus error={apiLastError.message || apiLastError}/>;
+    statusStyle = 'alert-warning';
+    closeCustomEvent = true;
+  }
+  else if(showCustomStatus && SmartyPayMetamaskProvider.isMultiApiState()){
+    statusElem = <MultiEthereumApiWarning />;
     statusStyle = 'alert-warning';
     closeCustomEvent = true;
   }
@@ -110,6 +118,18 @@ function NeedMetamaskStatus(){
       <a target='_blank' href='https://metamask.io/download/' rel="noreferrer">
         You can install it here.
       </a>
+    </span>
+  )
+}
+
+function MultiEthereumApiWarning(){
+  return (
+    <span data-closable='true'>
+      Many crypto wallets have been discovered.
+      {' '}
+      There may be a conflict between them.
+      {' '}
+      We recommend disabling unnecessary wallets through your browser settings.
     </span>
   )
 }

@@ -14,7 +14,7 @@ export function MetamaskConnectButton(){
         disabled={isSmartyApiLocked}
         onClick={connectToMetamask}
       >
-        Metamask
+        {SmartyPayMetamaskProvider.name()}
       </button>
     </>
   )
