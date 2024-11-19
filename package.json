@@ -1,7 +1,7 @@
 {
   "name": "smartypay-subscriptions-demo-react",
   "version": "1.0.0",
-  "description": "Integration demo for smartypay subscriptions api",
+  "description": "Integration demo for Smarty Pay subscriptions api",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -20,11 +20,11 @@
     "next": "13.5.7-canary.37",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "smartypay-client-metamask": "^2.36.0",
-    "smartypay-client-model": "^2.36.1",
-    "smartypay-client-subscriptions-react": "^2.36.1",
-    "smartypay-client-wallet-connect": "^2.36.0",
-    "smartypay-node-sdk": "^2.36.0",
+    "smartypay-client-metamask": "^2.36.2",
+    "smartypay-client-model": "^2.36.2",
+    "smartypay-client-subscriptions-react": "^2.36.2",
+    "smartypay-client-wallet-connect": "^2.36.2",
+    "smartypay-node-sdk": "^2.36.2",
     "swr": "^2.0.3",
     "typescript": "4.9.4",
     "uuid": "^9.0.0"

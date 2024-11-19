@@ -1,8 +1,8 @@
-# SmartyPay Subscriptions React Demo
+# Smarty Pay Subscriptions React Demo
 
 Demo Next.js project with 
-- [SmartyPay Node SDK for backend side](https://github.com/smarty-pay/smartypay-node-sdk)
-- [SmartyPay Subscriptions SDK for React](https://github.com/smarty-pay/smartypay-client-subscriptions-react)
+- [Smarty Pay Node SDK for backend side](https://github.com/smarty-pay/smartypay-node-sdk)
+- [Smarty Pay Subscriptions SDK for React](https://github.com/smarty-pay/smartypay-client-subscriptions-react)
 
 ## Load and fast start on localhost:3000
 ```
@@ -17,7 +17,7 @@ Demo Next.js project with
 ```
 file: ./src/index.js
 
-API_URL - SmartyPay server api url
+API_URL - Smarty Pay server api url
 API_KEY - Merchant api key
 API_SECRET - Merchant api secret
 ```
